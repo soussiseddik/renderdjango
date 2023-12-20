@@ -48,6 +48,13 @@
         background-image: url('../images/bck-md-.jpg');
         background-size: cover;
     }
+    .list-group-flush > .list-group-item {
+        margin-block: 20px;
+    }
+    .infoCarousel {
+        width: 89%;
+        margin: auto auto 35px auto;
+    }
     
     .container {
         margin-top: 3vh;
@@ -58,6 +65,20 @@
     }
     form[role="search"] {
         margin-left: 5rem;
+    }
+    form[role="search"] {
+        margin-left: 3rem;
+    }
+    .on_search { 
+        margin-left: 7vh;
+        margin-top: 2vh;
+    }
+    .on_search > .btn {
+        width: 7vh;
+        height: 4vh;
+    }
+    .infoProd > p {
+        padding-top: 4vh;
     }
     
 }
