@@ -117,7 +117,7 @@
     }.card{
         width: 17rem;
     }
-    .nav {
+    nav {
         justify-content: none;
     }
 }
