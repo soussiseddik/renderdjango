@@ -24,9 +24,7 @@ def index(request):
         '''
     else:
         prods = all_prods
-    contex = {'prods': prods, 'on_search': on_search, 'pattern': pattern}
-    if len(prods) == 0:
-        contex['mssg'] = mssg
+    contex = {'prods': prods, 'on_search': on_search, 'pattern': pattern, 'mssg': mssg}
     return render(request, 'index.html', contex)
 
 def prod_info(request, path_name):
