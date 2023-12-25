@@ -12,11 +12,14 @@ def index(request):
     if 'Search' in request.GET:
         on_search = True
         pattern = request.GET['Search']
+        prods = Product.objects.filter(name__iexact= pattern)
+        '''
         for prod in all_prods:
             if (pattern.upper() in prod.name.upper()) or (prod.get_category_display().upper() in pattern.upper()) :
                 prods.append(prod)
         else:
             mssg = True
+        '''
     else:
         prods = all_prods
     contex = {'prods': prods, 'on_search': on_search, 'pattern': pattern}
