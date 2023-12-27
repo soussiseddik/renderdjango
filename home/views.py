@@ -12,8 +12,8 @@ def index(request):
     if 'Search' in request.GET:
         on_search = True
         pattern = request.GET['Search']
-        prods = Product.objects.filter(Q(name__iexact= pattern) | Q(category__iexact= pattern))
-        if len(prods) > 0:
+        prods = Product.objects.filter(Q(name__iexact= pattern) | Q(name__contains= pattern))
+        if len(prods) == 0:
             mssg = True
         '''
         for prod in all_prods:
