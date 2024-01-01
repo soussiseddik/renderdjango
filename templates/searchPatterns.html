@@ -1,0 +1,12 @@
+<table id="tb" class="table">
+    <tbody>
+        {% for prod in prods %}
+        <a href="#">
+        <tr>
+            <th>
+                <a style="color: black;" href="{% url 'prod_info' prod.get_path %}"><p style="width: 100%; height: 100%"><span >{{ prod.patternsname.p1 }}</span><span style="color: green;">{{ prod.patternsname.p2 }}</span><span>{{ prod.patternsname.p3 }}</span></p></a>
+            </th>
+        </tr></a>
+        {% endfor %}
+    </tbody>
+</table>

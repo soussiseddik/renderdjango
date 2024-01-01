@@ -1,6 +1,7 @@
 from django.db import models
 
 class Product(models.Model):
+    patternsname = {}
     name = models.CharField(max_length=30)
     price = models.CharField(max_length=7, default='0000DT')
     image = models.ImageField(upload_to= 'images/') 

@@ -40,6 +40,10 @@
     .card{
         width: 14rem;
     }
+    #tb {
+        margin-left: 177px; 
+        width: 190px; 
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -79,6 +83,10 @@
     }
     .infoProd > p {
         padding-top: 4vh;
+    }
+    #tb {
+        margin-left: 80px;
+        width: 105px;
     }
     
 }
@@ -120,8 +128,20 @@
     nav {
         justify-content: none;
     }
+    #tb {
+        margin-left: 80px;
+        width: 105px;
+    }
 }
-
+#tb {
+    background: white;
+}
+#tb tr:hover {
+    background: rgb(133, 128, 128);
+}
+#tb tr p:hover {
+    color: rgb(18, 17, 17);
+}
 body {
     background-attachment: fixed;
 }

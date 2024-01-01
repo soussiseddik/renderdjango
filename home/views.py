@@ -15,17 +15,23 @@ def index(request):
         prods = Product.objects.filter(Q(name__iexact= pattern) | Q(name__contains= pattern))
         if len(prods) == 0:
             mssg = True
-        '''
-        for prod in all_prods:
-            if (pattern.upper() in prod.name.upper()) or (prod.get_category_display().upper() in pattern.upper()) :
-                prods.append(prod)
-        else:
-            mssg = True
-        '''
     else:
         prods = all_prods
     contex = {'prods': prods, 'on_search': on_search, 'pattern': pattern, 'mssg': mssg}
     return render(request, 'index.html', contex)
+
+def searchPatterns(request):
+    prods = []
+    if request.method == 'GET':
+        pttrn = request.GET['Search']
+        if pttrn in ['', ' '] or len(pttrn) == 1:
+            pttrn = '_-_-_-_'
+        prods = Product.objects.filter(Q(name__startswith= pttrn) | Q(name__contains= pttrn))
+
+        patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 'p2': pttrn, 'p3':prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
+        for i, prod in enumerate(prods):
+            prod.patternsname = patternsnames[i]
+    return render(request, 'searchPatterns.html', {'prods': prods})
 
 def prod_info(request, path_name):
     all_prods = Product.objects.all()
