@@ -6,7 +6,11 @@
         background-image: url('../images/bck-lg-.jpg');
     }
     .list-group-flush > .list-group-item {
-        margin-block: 18px;
+        margin-block: 15px;
+    }
+    .infoCarousel {
+        width: 45%;
+        margin: auto auto 35px auto;
     }
     .container {
         min-height: 75.5vh;
@@ -36,6 +40,10 @@
     .card{
         width: 14rem;
     }
+    #tb {
+        margin-left: 177px; 
+        width: 190px; 
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -43,6 +51,13 @@
         font-size: 16px;
         background-image: url('../images/bck-md-.jpg');
         background-size: cover;
+    }
+    .list-group-flush > .list-group-item {
+        margin-block: 20px;
+    }
+    .infoCarousel {
+        width: 89%;
+        margin: auto auto 35px auto;
     }
     
     .container {
@@ -55,6 +70,24 @@
     form[role="search"] {
         margin-left: 5rem;
     }
+    form[role="search"] {
+        margin-left: 3rem;
+    }
+    .on_search { 
+        margin-left: 7vh;
+        margin-top: 2vh;
+    }
+    .on_search > .btn {
+        width: 7vh;
+        height: 4vh;
+    }
+    .infoProd > p {
+        padding-top: 4vh;
+    }
+    #tb {
+        margin-left: 80px;
+        width: 105px;
+    }
     
 }
   
@@ -66,11 +99,15 @@
     .list-group-flush > .list-group-item {
         margin-block: 20px;
     }
+    .infoCarousel {
+        width: 89%;
+        margin: auto auto 35px auto;
+    }
     ::placeholder {
         color: #718497;
     }
     .container {
-        min-height: 72vh;
+        min-height: 75vh;
     }
     form[role="search"] {
         margin-left: 3rem;
@@ -80,17 +117,31 @@
         margin-top: 2vh;
     }
     .on_search > .btn {
-        width: 8vh;
-        height: 8vh;
-        line-height: 2.4;
+        width: 7vh;
+        height: 4vh;
     }
     .infoProd > p {
         padding-top: 4vh;
     }.card{
         width: 17rem;
     }
+    nav {
+        justify-content: none;
+    }
+    #tb {
+        margin-left: 80px;
+        width: 105px;
+    }
 }
-
+#tb {
+    background: white;
+}
+#tb tr:hover {
+    background: rgb(133, 128, 128);
+}
+#tb tr p:hover {
+    color: rgb(18, 17, 17);
+}
 body {
     background-attachment: fixed;
 }
