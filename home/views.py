@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Product
 from django.contrib.auth.models import User
 from django.contrib import auth
-from django.db.models import Q
 # Create your views here.
 
 def index(request):
@@ -13,7 +12,9 @@ def index(request):
     if 'Search' in request.GET:
         on_search = True
         pattern = request.GET['Search']
-        prods = Product.objects.filter(Q(name__iexact= pattern) | Q(name__contains= pattern))
+        for prod in Product.objects.all():
+            if pattern in prod.name.lower() or pattern == prod.category:
+                prods.append(prod)
         if len(prods) == 0:
             mssg = True
     else:
@@ -26,7 +27,6 @@ def searchPatterns(request):
     if request.method == 'GET':
         pttrn = request.GET['Search'].lower()
         if not(pttrn in ['', ' '] or len(pttrn) == 1):
-            #prods = Product.objects.filter(Q(name__startswith= f'{pttrn[0].upper()}{pttrn[1:]}') | Q(name__contains= pttrn))
             for prod in Product.objects.all():
                 if pttrn in prod.name.lower() or pttrn == prod.category:
                     prods.append(prod)
