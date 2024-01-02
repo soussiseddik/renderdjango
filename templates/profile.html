@@ -17,21 +17,17 @@
     <div class="modal-dialog">
       <div class="modal-content" style="background-color: #5c6976;">
         <div class="modal-header">
-          <h3 class="modal-title fs-5" style="color: #71ff7ec7" id="exampleModalLabel">logout</h3>
+          <h3 class="modal-title fs-5" style="margin: auto" id="exampleModalLabel">Are You Sure ??</h3>
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" data-dismiss="modal" aria-label="Close">
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
           </svg>
         </div>
-        <div class="modal-body">
-          are you sure ??
-        </div>
-        <div class="modal-footer">
-          <form action="" method="post">
+        <div class="modal-footer" style="justify-content: center;">
+          <form method="POST">
             {% csrf_token %}
-            <input class="btn btn-secondary" data-dismiss="modal" value="No">
-            <input type="submit" class="btn btn-danger" value="Sure">
+            <a class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+            <button type="submit" class="btn btn-danger">Sure</button>
           </form>
-          
         </div>
       </div>
     </div>

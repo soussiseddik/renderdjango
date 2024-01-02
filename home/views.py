@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.db.models import Q
 # Create your views here.
+
 def index(request):
     pattern = ''
     on_search = mssg = False
@@ -23,14 +24,16 @@ def index(request):
 def searchPatterns(request):
     prods = []
     if request.method == 'GET':
-        pttrn = request.GET['Search']
+        pttrn = request.GET['Search'].lower()
         if pttrn in ['', ' '] or len(pttrn) == 1:
             pttrn = '_-_-_-_'
-        prods = Product.objects.filter(Q(name__startswith= pttrn) | Q(name__contains= pttrn))
-
-        patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 'p2': pttrn, 'p3':prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
-        for i, prod in enumerate(prods):
-            prod.patternsname = patternsnames[i]
+        else:
+            prods = Product.objects.filter(Q(name__startswith= f'{pttrn[0].upper()}{pttrn[1:]}') | Q(name__contains= pttrn))
+            patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 
+                            'p2': prod.name.lower()[prod.name.lower().index(pttrn) : prod.name.lower().index(pttrn)+len(pttrn)] , 
+                            'p3': prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
+            for i, prod in enumerate(prods):
+                prod.patternsname = patternsnames[i]
     return render(request, 'searchPatterns.html', {'prods': prods})
 
 def prod_info(request, path_name):
