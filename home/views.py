@@ -25,10 +25,11 @@ def searchPatterns(request):
     prods = []
     if request.method == 'GET':
         pttrn = request.GET['Search'].lower()
-        if pttrn in ['', ' '] or len(pttrn) == 1:
-            pttrn = '_-_-_-_'
-        else:
-            prods = Product.objects.filter(name__contains= pttrn)
+        if not(pttrn in ['', ' '] or len(pttrn) == 1):
+            #prods = Product.objects.filter(Q(name__startswith= f'{pttrn[0].upper()}{pttrn[1:]}') | Q(name__contains= pttrn))
+            for prod in Product.objects.all():
+                if pttrn in prod.name.lower() or pttrn == prod.category:
+                    prods.append(prod)
             patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 
                             'p2': prod.name.lower()[prod.name.lower().index(pttrn) : prod.name.lower().index(pttrn)+len(pttrn)] , 
                             'p3': prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
