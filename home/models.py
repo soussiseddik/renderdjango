@@ -3,7 +3,7 @@ from django.db import models
 class Product(models.Model):
     patternsname = {}
     name = models.CharField(max_length=30)
-    price = models.CharField(max_length=7, default='0000DT')
+    price = models.CharField(max_length=7, default='00.00')
     image = models.ImageField(upload_to= 'images/') 
     info_image1 = models.ImageField(upload_to= 'images/', default=0)
     info_image2 = models.ImageField(upload_to= 'images/', default=0) 

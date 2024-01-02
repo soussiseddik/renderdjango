@@ -28,7 +28,7 @@ def searchPatterns(request):
         if pttrn in ['', ' '] or len(pttrn) == 1:
             pttrn = '_-_-_-_'
         else:
-            prods = Product.objects.filter(Q(name__startswith= f'{pttrn[0].upper()}{pttrn[1:]}') | Q(name__contains= pttrn))
+            prods = Product.objects.filter(name__contains= pttrn)
             patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 
                             'p2': prod.name.lower()[prod.name.lower().index(pttrn) : prod.name.lower().index(pttrn)+len(pttrn)] , 
                             'p3': prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
