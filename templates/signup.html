@@ -73,8 +73,8 @@
         
         <div class="submit">
           <input type="submit" value="Sign up" class="btn col-4 col-sm-4 col-lg-4" disabled>
-          <p class=" text-light mt-2">already heva an account : <a href="{% url 'signin' %}" style="color: #c5ff9b;"><strong>Sign In</strong></a></p>
-          <p class=" text-light mt-2">back home : <a href="{% url 'index' %}" style="color: #c5ff9b;"><strong>Home</strong></a></p>
+          <p class=" text-light mt-2">already heva an account : <a href="{% url 'signin' %}" hx-get="/signin" hx-trigger="click" hx-target="#bd" style="color: #c5ff9b;"><strong>Sign In</strong></a></p>
+          <p class=" text-light mt-2">back home : <a href="{% url 'index' %}" hx-get="/" hx-trigger="click" hx-target="#bd" style="color: #c5ff9b;"><strong>Home</strong></a></p>
         </div>
         
       </form>
