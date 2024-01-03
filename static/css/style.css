@@ -44,6 +44,11 @@
         margin-left: 177px; 
         width: 190px; 
     }
+    .htmx-indicator {
+        width: 170px; 
+        margin-left: 89vh; 
+        margin-top: 26vh
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -88,6 +93,11 @@
         margin-left: 80px;
         width: 105px;
     }
+    .htmx-indicator {
+        width: 100px;
+        margin-left: 18vh;
+        margin-top: 41vh;
+    }
     
 }
   
@@ -131,6 +141,11 @@
     #tb {
         margin-left: 80px;
         width: 105px;
+    }
+    .htmx-indicator {
+        width: 100px;
+        margin-left: 18vh;
+        margin-top: 41vh;
     }
 }
 #tb {
