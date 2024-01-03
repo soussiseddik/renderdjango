@@ -11,7 +11,7 @@ def index(request):
     all_prods = Product.objects.all()
     if 'Search' in request.GET:
         on_search = True
-        pattern = request.GET['Search']
+        pattern = request.GET['Search'].lower()
         for prod in Product.objects.all():
             if pattern in prod.name.lower() or pattern == prod.category:
                 prods.append(prod)
