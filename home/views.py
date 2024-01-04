@@ -13,7 +13,9 @@ def index(request):
         on_search = True
         pattern = request.GET['Search'].lower()
         for prod in Product.objects.all():
-            if pattern in prod.name.lower() or pattern == prod.category:
+            print(prod.category)
+            if pattern in prod.name.lower() or pattern in prod.category:
+                
                 prods.append(prod)
         if len(prods) == 0:
             mssg = True

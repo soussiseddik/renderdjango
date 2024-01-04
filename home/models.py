@@ -7,13 +7,13 @@ class Product(models.Model):
     image = models.ImageField(upload_to= 'images/') 
     info_image1 = models.ImageField(upload_to= 'images/', default=0)
     info_image2 = models.ImageField(upload_to= 'images/', default=0) 
-    allCategorys = (['1', 'phones'], 
-               ['2','computers'], 
-               ['3', 'games'], 
-               ['4', 'headphones'], 
-               ['5', 'soundcards'], 
-               ['6', 'microphones'])
-    category = models.CharField(choices=allCategorys, max_length=1, default='1')     
+    allCategorys = (['phones', 'phones'], 
+               ['computers','computers'], 
+               ['games', 'games'], 
+               ['headphones', 'headphones'], 
+               ['soundcards', 'soundcards'], 
+               ['microphones', 'microphones'])
+    category = models.CharField(choices=allCategorys, max_length=11, default='phones')     
     caract = models.CharField(max_length=500, default='no caracters')
     def __str__(self):
         return self.name

@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,15 @@
     <title>Live Techno . {% block title %}{% endblock %}</title>
 </head>
 <body id="bd">  
-    <div>  
-        <img class="htmx-indicator" style="position: fixed ;" id="indicator" src="{% static 'svg-loaders/spinning-circles.svg' %}">            
-
+    
+    <div class="htmx-indicator" id="indicator" style="position: fixed ; z-index: 2;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <path d="M10 50A40 40 0 0 0 90 50A40 43.3 0 0 1 10 50" fill="#4be71c" stroke="none">
+                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51.65;360 50 51.65"></animateTransform>
+            </path>
+        </svg>
+    </div>
+        <!-- <img class="htmx-indicator" style="position: fixed ; z-index: 2;" id="indicator" src="{% static 'svg-loaders/spinning-circles.svg' %}">             -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <a href="{% url 'index' %}"  hx-get="/" hx-indicator="#indicator" hx-target="#bd" class="navbar-brand text-light" style="font-size: 20px; font-family: cursive;">
                 <span style="color: #a6f06c; font-size: 20px">L</span>ive<span style="color: #a6f06c; font-size: 20px">T</span>echno
@@ -58,7 +65,7 @@
                 </li>  
             </div>
 
-            <a href="#collapse" data-toggle="collapse" class="navbar-toggler" aria-expanded="false">
+            <a href="#collapse" data-toggle="collapse" class="navbar-toggler" aria-expanded="false" style="border: solid 3px #a6f06c;">
                 <div class="navbar-toggler-icon"></div>
             </a>
             <div id="collapse" class="collapse navbar-collapse row">
@@ -107,20 +114,6 @@
             <a href="{% url 'index' %}" class="text-light" hx-get="/" hx-indicator="#indicator" hx-target="#bd">livetechno-application.onrender.com</a>
             </div>
         </footer>
-    
-    <script>
-        document.body.addEventListener('htmx:afterSwap', function (event) {
-            var newUrl = event.detail.xhr.responseURL;
-            if (!newUrl.includes('searchPatterns')){
-                history.pushState(null, '', newUrl);
-            }
-            
-          });
-        $(document).on('click',function(){
-        $('.collapse').collapse('hide');
-        })
-    </script>
     <script src="{% static 'js/authenticationSysLogic.js' %}"></script>
-</div>
 </body>
 </html>

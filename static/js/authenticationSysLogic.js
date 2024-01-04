@@ -71,3 +71,12 @@ no_effct = function (id) {
     });
 }
 
+document.body.addEventListener('htmx:afterSwap', function (event) {
+    var newUrl = event.detail.xhr.responseURL;
+    if (!newUrl.includes('searchPatterns')){
+        history.pushState(null, '', newUrl);
+    }
+  });
+$(document).on('click',function(){
+    $('.collapse').collapse('hide');
+});

@@ -46,7 +46,7 @@
     }
     .htmx-indicator {
         width: 170px; 
-        margin-left: 89vh; 
+        margin-left: 87vh; 
         margin-top: 26vh
     }
 }
@@ -144,9 +144,20 @@
     }
     .htmx-indicator {
         width: 100px;
-        margin-left: 22vh;
-        margin-top: 73vh;
+        margin-left: 15vh;
+        margin-top: 24vh;
     }
+}
+.htmx-indicator {
+    display: none;
+}
+.htmx-request .htmx-indicator{
+    display: block;
+    opacity:1;
+}
+.htmx-request.htmx-indicator{
+    display: block;
+    opacity:1;
 }
 #tb {
     background: white;

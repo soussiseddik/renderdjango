@@ -148,6 +148,17 @@
         margin-top: 73vh;
     }
 }
+.htmx-indicator {
+    display: none;
+}
+.htmx-request .htmx-indicator{
+    display: block;
+    opacity:1;
+}
+.htmx-request.htmx-indicator{
+    display: block;
+    opacity:1;
+}
 #tb {
     background: white;
 }
