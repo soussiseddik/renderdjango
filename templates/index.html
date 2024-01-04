@@ -9,8 +9,7 @@
     <div class="search-bar">
         <div class="navbar bg-dark" style="border-top: 1px black solid;">
             <form method="GET" class="d-flex mt-1 col-lg-3 col-9" role="search">
-                {% csrf_token %}
-                <input class="form-control me-2 inpt inFocus" type="search" placeholder="Search..." aria-label="Search" name="Search" onkeyup="submit_active()" hx-get="/searchPatterns" hx-trigger="keyup delay:500ms" hx-target="#tb" hx-swap="outerHTML">
+                <input class="form-control me-2 inpt inFocus" type="search" placeholder="Search..." aria-label="Search" name="Search" onkeyup="submit_active()" hx-get="/searchPatterns" hx-trigger="keyup delay:300ms" hx-target="#tb" hx-swap="outerHTML">
                 <div class="submit">
                     <input class="btn" value="search" type="submit" style="margin-left: 5vh;" disabled>
                 </div>
@@ -21,7 +20,7 @@
     </div>
     {% if on_search %}
         <div class="on_search">
-            <a class="btn text-light" type="submit" style="border-radius: 50%; box-shadow: #000000db 0px 8px 7px 6px; width: 50px; height: 50px;" href="{% url 'index' %}"><strong style="line-height: 37px;">All</strong></a>
+            <a class="btn text-light" type="submit" style="border-radius: 50%; box-shadow: #000000db 0px 8px 7px 6px; width: 50px; height: 50px;" href="{% url 'index' %}" hx-get="/" hx-indicator="#indicator" hx-target="#bd"><strong style="line-height: 37px;">All</strong></a>
         </div>
     {% endif %}
     <div class="container" style="margin-left: auto;">

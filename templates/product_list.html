@@ -3,7 +3,7 @@
         <a href="{% url 'prod_info' prod.get_path %}" hx-get="/info/{{ prod.get_path}}" hx-indicator="#indicator" hx-target="#bd">
             <div class="col-lg-3 col-md-6 col-11 mx-auto my-4">
                 <div class="card mx-auto" style="height: 354px;">
-                    <img src="{{ prod.image.url }}" class="card-img-top" style="height: 194px;" alt="image">
+                    <img src="{{ prod.image.url }}" class="card-img-top" style="height: 194px;" alt="{{prod.name}} image">
                     <div class="card-body">
                         <span class="card-title text-light">{{prod.name}}</span>
                         <p class="card-text text-secondary" style="font-size: 22px;">{{prod.price}} <span style="font-size: 23px; color: #668ab1;">DT</span></p>

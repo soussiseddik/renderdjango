@@ -15,7 +15,7 @@
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content" style="background-color: #5c6976;">
+      <div class="modal-content" style="background-color: #0f2a1e;">
         <div class="modal-header">
           <h3 class="modal-title fs-5" style="margin: auto" id="exampleModalLabel">Are You Sure ??</h3>
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" data-dismiss="modal" aria-label="Close">
@@ -25,8 +25,8 @@
         <div class="modal-footer" style="justify-content: center;">
           <form method="POST">
             {% csrf_token %}
-            <a class="btn btn-secondary" data-dismiss="modal">Cancel</a>
-            <button type="submit" class="btn btn-danger">Sure</button>
+            <div class="btn btn-dark" data-dismiss="modal">Cancel</div>
+            <button type="submit" class="btn btn-success">Sure</button>
           </form>
         </div>
       </div>
