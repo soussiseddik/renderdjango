@@ -13,7 +13,7 @@ class Product(models.Model):
                ['headphones', 'headphones'], 
                ['soundcards', 'soundcards'], 
                ['microphones', 'microphones'])
-    category = models.CharField(choices=allCategorys, max_length=11, default='phones')     
+    category = models.CharField(choices=allCategorys, max_length=20, default='phones')     
     caract = models.CharField(max_length=500, default='no caracters')
     def __str__(self):
         return self.name
