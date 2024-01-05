@@ -5,6 +5,8 @@ from django.contrib import auth
 # Create your views here.
 
 def index(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     pattern = ''
     on_search = mssg = False
     prods = []
@@ -40,6 +42,8 @@ def searchPatterns(request):
     return render(request, 'searchPatterns.html', {'prods': prods})
 
 def prod_info(request, path_name):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     all_prods = Product.objects.all()
     for prod in all_prods:
         if prod.get_path()==path_name:
@@ -49,12 +53,16 @@ def prod_info(request, path_name):
 
     
 def profile(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     if request.method == 'POST':
         auth.logout(request)
         return redirect('signin')
     return render(request, 'profile.html')
 
 def contact(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     return render(request, 'contact.html')
 
 
@@ -107,6 +115,8 @@ def signin(request):
     return render(request, 'signin.html', data)
 
 def category(request, category_name):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     all_prods = Product.objects.all()
     prods = []
     for prod in all_prods:

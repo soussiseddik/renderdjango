@@ -12,6 +12,7 @@
 {% block content %}
     <div class="container">
       <h3 class="text-center logTitle" style="color: #b1e588; opacity: .7; margin-top: 5vh;">Sign In Here</h3>
+      <p style="text-align: center; font-size: 1rem; color: #b1e588;">You Must SignIn To Show Our producs</p>
       <form method="post" class="mt-5 mx-auto text-center" style="margin-bottom: 22vh;width: 40vh;padding-top: 3vh;">
         {% csrf_token %}
         <div class="form-group mb-5" id="username" {% if usernameInv or bothInv %}style="border-bottom: 3px red solid;"{% endif %}>
@@ -36,7 +37,6 @@
         <div class="submit">
           <input type="submit" value="Sing in" class="btn col-4 col-sm-4 col-lg-3" disabled>
           <p class="text-light mt-2">don't have an account : <a href="{% url 'signup' %}" hx-get="/signup" hx-target="#bd" hx-indicator="#indicator" style="color: #c5ff9b;"><strong>Sign Up</strong></a></p>
-          <p class=" text-light mt-2">back home : <a href="{% url 'index' %}" hx-get="/" hx-target="#bd" hx-indicator="#indicator" style="color: #c5ff9b;"><strong>Home</strong></a></p>
         </div>
         
         
