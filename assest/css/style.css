@@ -45,9 +45,9 @@
         width: 190px; 
     }
     .htmx-indicator {
-        width: 170px; 
-        margin-left: 89vh; 
-        margin-top: 26vh
+        width: 100%;
+        margin: auto;
+        margin-top: 37vh;
     }
 }
 
@@ -94,9 +94,9 @@
         width: 105px;
     }
     .htmx-indicator {
-        width: 100px;
-        margin-left: 18vh;
-        margin-top: 41vh;
+        width: 100%;
+        margin: auto;
+        margin-top: 50%;
     }
     
 }
@@ -143,9 +143,9 @@
         width: 105px;
     }
     .htmx-indicator {
-        width: 100px;
-        margin-left: 22vh;
-        margin-top: 73vh;
+        width: 100%;
+        margin: auto;
+        margin-top: 50%;
     }
 }
 .htmx-indicator {
