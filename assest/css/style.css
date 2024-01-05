@@ -57,6 +57,9 @@
         background-image: url('../images/bck-md-.jpg');
         background-size: cover;
     }
+    .smallLogoLetters {
+        display: none;
+    }
     .list-group-flush > .list-group-item {
         margin-block: 20px;
     }
@@ -73,10 +76,8 @@
         color: #506274;
     }
     form[role="search"] {
-        margin-left: 5rem;
-    }
-    form[role="search"] {
-        margin-left: 3rem;
+        margin: auto;
+        justify-content: center;
     }
     .on_search { 
         margin-left: 7vh;
@@ -106,6 +107,9 @@
         font-size: 14px;
         background-image: url('../images/bck-sm-.png');
     }
+    .smallLogoLetters {
+        display: none;
+    }
     .list-group-flush > .list-group-item {
         margin-block: 20px;
     }
@@ -120,7 +124,8 @@
         min-height: 75vh;
     }
     form[role="search"] {
-        margin-left: 3rem;
+        margin: auto;
+        justify-content: center;
     }
     .on_search { 
         margin-left: 7vh;
