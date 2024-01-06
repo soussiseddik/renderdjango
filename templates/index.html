@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="search-bar">
-        <div class="navbar bg-dark" style="border-top: 1px black solid;">
+        <div class="navbar bg-dark" style="border-top: 1px black solid; margin-top: 4rem;">
             <form method="GET" class="d-flex mt-1 col-lg-3 col-9" role="search">
                 <input class="form-control me-2 inpt inFocus" style="width: 55%" type="search" placeholder="Search..." aria-label="Search" name="Search" onkeyup="submit_active()" hx-get="/searchPatterns" hx-trigger="keyup delay:300ms" hx-target="#tb" hx-swap="outerHTML">
                 <div class="submit" style="margin-left: 5%;">
