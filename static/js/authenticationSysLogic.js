@@ -75,6 +75,10 @@ document.body.addEventListener('htmx:afterSwap', function (event) {
     var newUrl = event.detail.xhr.responseURL;
     if (!newUrl.includes('searchPatterns')){
         history.pushState(null, '', newUrl);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
   });
 $(document).on('click',function(){

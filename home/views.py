@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Product
 from django.contrib.auth.models import User
 from django.contrib import auth
+
 # Create your views here.
+AllProducts = Product.objects.all()
 
 def index(request):
     if not request.user.is_authenticated:
@@ -10,15 +12,11 @@ def index(request):
     pattern = ''
     on_search = mssg = False
     prods = []
-    all_prods = Product.objects.all()
+    all_prods = AllProducts
     if 'Search' in request.GET:
         on_search = True
         pattern = request.GET['Search'].lower()
-        for prod in Product.objects.all():
-            print(prod.category)
-            if pattern in prod.name.lower() or pattern in prod.category:
-                
-                prods.append(prod)
+        prods = Product.objects.filter(name__contains= pattern) | Product.objects.filter(category__contains= pattern)
         if len(prods) == 0:
             mssg = True
     else:
@@ -31,9 +29,7 @@ def searchPatterns(request):
     if request.method == 'GET':
         pttrn = request.GET['Search'].lower()
         if not(pttrn in ['', ' '] or len(pttrn) == 1):
-            for prod in Product.objects.all():
-                if pttrn in prod.name.lower() or pttrn == prod.category:
-                    prods.append(prod)
+            prods = Product.objects.filter(name__contains= pttrn)
             patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 
                             'p2': prod.name.lower()[prod.name.lower().index(pttrn) : prod.name.lower().index(pttrn)+len(pttrn)] , 
                             'p3': prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
@@ -44,7 +40,7 @@ def searchPatterns(request):
 def prod_info(request, path_name):
     if not request.user.is_authenticated:
         return redirect('signin')
-    all_prods = Product.objects.all()
+    all_prods = AllProducts
     for prod in all_prods:
         if prod.get_path()==path_name:
             rightProd = prod
@@ -55,10 +51,11 @@ def prod_info(request, path_name):
 def profile(request):
     if not request.user.is_authenticated:
         return redirect('signin')
-    if request.method == 'POST':
+    elif request.method == 'POST':
         auth.logout(request)
         return redirect('signin')
-    return render(request, 'profile.html')
+    else:
+        return render(request, 'profile.html')
 
 def contact(request):
     if not request.user.is_authenticated:
@@ -117,7 +114,7 @@ def signin(request):
 def category(request, category_name):
     if not request.user.is_authenticated:
         return redirect('signin')
-    all_prods = Product.objects.all()
+    all_prods = AllProducts
     prods = []
     for prod in all_prods:
         if prod.get_category_display() == category_name:
