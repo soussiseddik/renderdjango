@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+'''
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -141,9 +141,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u56_o2!4!9lfj#bsg_j8y*!yw%fp5-u*jrhkv23r$lcl!*mgt='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = str(os.environ.get('ALLOWED_HOSTS')).split(' ')
 
 
 # Application definition
@@ -195,11 +195,11 @@ WSGI_APPLICATION = 'siteName.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydata_2jy4',
-        'HOST': 'dpg-cm1c97q1hbls73agijjg-a.oregon-postgres.render.com',
-        'PORT': '5432',
-        'USER': 'mydata_2jy4_user',
-        'PASSWORD': 'XSOlzdR60d5bLsgT90BiOAemjWmzc2AD',
+        'NAME': 'LTDB',
+        'HOST': 'localhost',
+        'PORT': '5434',
+        'USER': 'postgres',
+        'PASSWORD': 'postgresqldb123',
     }
 }
 
@@ -253,4 +253,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-'''

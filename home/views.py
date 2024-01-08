@@ -30,6 +30,7 @@ def searchPatterns(request):
         pttrn = request.GET['Search'].lower()
         if not(pttrn in ['', ' '] or len(pttrn) == 1):
             prods = Product.objects.filter(name__contains= pttrn)
+            print(len(prods)==0)
             patternsnames = [{'p1': prod.name.lower()[:prod.name.lower().index(pttrn)], 
                             'p2': prod.name.lower()[prod.name.lower().index(pttrn) : prod.name.lower().index(pttrn)+len(pttrn)] , 
                             'p3': prod.name.lower()[prod.name.lower().index(pttrn)+len(pttrn):]} for prod in prods]
